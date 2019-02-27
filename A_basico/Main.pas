@@ -63,6 +63,7 @@ type
     Button5: TButton;
     TabSheet8: TTabSheet;
     Button7: TButton;
+    Memo4: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnSetImageClick(Sender: TObject);
     procedure btnGetImageClick(Sender: TObject);
@@ -247,6 +248,9 @@ begin
 end;
 
 procedure TForm2.Button7Click(Sender: TObject);
+var
+  oRetorno: TRedisArray;
+  sOK     : string;
 begin
   Self.FConn.MULTI;
   Self.FConn.&SET('CODERAGE:ABC123#', 'OLÁ MUNDO');
@@ -257,7 +261,14 @@ begin
   Self.FConn.&SET('CODERAGE:DEF456#', 'OLÁ MUNDO');
   Self.FConn.&SET('CODERAGE:GHI456#', 'OLÁ MUNDO');
   Self.FConn.&SET('CODERAGE:JKL456#', 'OLÁ MUNDO');
-  Self.FConn.EXEC;
+  oRetorno := Self.FConn.EXEC;
+
+  Self.Memo4.Clear;
+  for sOK in oRetorno.Value do
+  begin
+    Self.Memo4.Lines.Append(sOK);
+  end;
+
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);

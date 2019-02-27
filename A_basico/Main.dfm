@@ -31,7 +31,6 @@ object Form2: TForm2
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'SET'
-      ExplicitWidth = 594
       object Image1: TImage
         Left = 3
         Top = 16
@@ -4558,7 +4557,6 @@ object Form2: TForm2
     object TabSheet6: TTabSheet
       Caption = 'TTL'
       ImageIndex = 5
-      ExplicitWidth = 594
       object Label5: TLabel
         Left = 8
         Top = 72
@@ -4588,11 +4586,19 @@ object Form2: TForm2
         TabOrder = 0
         OnClick = Button7Click
       end
+      object Memo4: TMemo
+        Left = 24
+        Top = 96
+        Width = 673
+        Height = 313
+        Lines.Strings = (
+          'Memo4')
+        TabOrder = 1
+      end
     end
     object TabSheet7: TTabSheet
       Caption = 'KEYS'
       ImageIndex = 6
-      ExplicitWidth = 594
       object Memo3: TMemo
         AlignWithMargins = True
         Left = 5
@@ -4607,7 +4613,6 @@ object Form2: TForm2
         Lines.Strings = (
           'Memo3')
         TabOrder = 0
-        ExplicitWidth = 584
       end
       object Panel2: TPanel
         AlignWithMargins = True
@@ -4623,7 +4628,6 @@ object Form2: TForm2
         Caption = 'Panel2'
         ShowCaption = False
         TabOrder = 1
-        ExplicitWidth = 584
         object edtPadraoBusca: TEdit
           Left = 3
           Top = 16
@@ -4660,7 +4664,6 @@ object Form2: TForm2
     ShowCaption = False
     ShowHint = False
     TabOrder = 1
-    ExplicitWidth = 602
     object Label1: TLabel
       Left = 12
       Top = 6

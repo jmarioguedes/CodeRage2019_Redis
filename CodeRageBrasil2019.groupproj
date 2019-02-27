@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6308FEEE-BD75-41CE-855C-F6F7A9B3F031}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="A_basico\basico.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="H_pubsub\pubsub.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="F_produtor\produtor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="G_consumidor\consumidor.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="basico">
+        <MSBuild Projects="A_basico\basico.dproj"/>
+    </Target>
+    <Target Name="basico:Clean">
+        <MSBuild Projects="A_basico\basico.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="basico:Make">
+        <MSBuild Projects="A_basico\basico.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pubsub">
+        <MSBuild Projects="H_pubsub\pubsub.dproj"/>
+    </Target>
+    <Target Name="pubsub:Clean">
+        <MSBuild Projects="H_pubsub\pubsub.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pubsub:Make">
+        <MSBuild Projects="H_pubsub\pubsub.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="produtor">
+        <MSBuild Projects="F_produtor\produtor.dproj"/>
+    </Target>
+    <Target Name="produtor:Clean">
+        <MSBuild Projects="F_produtor\produtor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="produtor:Make">
+        <MSBuild Projects="F_produtor\produtor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="consumidor">
+        <MSBuild Projects="G_consumidor\consumidor.dproj"/>
+    </Target>
+    <Target Name="consumidor:Clean">
+        <MSBuild Projects="G_consumidor\consumidor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="consumidor:Make">
+        <MSBuild Projects="G_consumidor\consumidor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="basico;pubsub;produtor;consumidor"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="basico:Clean;pubsub:Clean;produtor:Clean;consumidor:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="basico:Make;pubsub:Make;produtor:Make;consumidor:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
